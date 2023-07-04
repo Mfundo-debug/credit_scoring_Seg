@@ -16,6 +16,46 @@ The given dataset includes features such as age, gender, marital status, educati
 
 Your task is to calculate credit scores and segment customers based on their credit scores to gain insights into different customer groups.
 
+#### Make sure the following libraries for this project
+
+```{python}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+import os
+import warnings
+warnings.filterwarnings('ignore')
+from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import KMeans
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
+```
+
+#### FICO Formula
+
+let p be payment history
+
+let C be Credit Utilization Ration
+
+let n be Number of Credit Accounts
+
+let el be Education Level
+
+let es be Employment Status
+
+and it can be demonstrated mathematical wise and also in python code:
+
+$$
+FICO = (0.35p) + (0.3*C) + (0.15n) + (0.1el) + (0.1es)
+$$
+
+```{python}
+credit_score = (payment_history*0.35) + (credit_utilization_ratio*0.3) + (number_of_credit_accounts*0.15) + (education_level*0.1) + (employment_status*0.1)
+credit_scores.append(credit_score)
+```
+
 ### Description of all features in the data:
 
 1.  Age: represents the age of the customer
