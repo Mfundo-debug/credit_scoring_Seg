@@ -1,4 +1,3 @@
-# credit_scoring_Seg
 
 #### Credit Scoring and Segmentation
 
