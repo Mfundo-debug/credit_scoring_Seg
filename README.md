@@ -48,7 +48,7 @@ let es be Employment Status
 and it can be demonstrated mathematical wise and also in python code:
 
 $$
-FICO = (0.35p) + (0.3*C) + (0.15n) + (0.1el) + (0.1es)
+FICO = (0.35p) + (0.3C) + (0.15n) + (0.1el) + (0.1es)
 $$
 
 ```{python}
