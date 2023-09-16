@@ -8,12 +8,12 @@ class Customer(models.Model):
     education_level = models.CharField(max_length=10)
     employment_status = models.CharField(max_length=10)
     credit_utilization_ratio = models.FloatField()
-    payment_history = models.CharField(max_length=10)
+    payment_history = models.FloatField()
     number_of_credit_accounts = models.IntegerField()
     loan_amount = models.FloatField()
     interest_rate = models.FloatField()
     loan_term = models.IntegerField()
-    type_of_loan = models.CharField(max_length=10)
+    type_of_loan = models.CharField(max_length=20)
 
     def __str__(self) -> str:
        # return all strings in the object
