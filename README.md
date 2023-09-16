@@ -73,7 +73,7 @@ credit_scores.append(credit_score)
 
 #### Project Progress
 
-![The entire EDA,Modelling is complete, currently doing django application for this project](https://img.shields.io/badge/status-in%20progress-yellow)
+![Project Status](https://img.shields.io/badge/status-in%20progress-yellow) The workflow is complete currently working on moving the model to django web app 👍.
 
 #### The final output of the project
 
