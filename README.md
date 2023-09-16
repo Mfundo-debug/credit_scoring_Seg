@@ -71,6 +71,10 @@ credit_scores.append(credit_score)
 11. Loan Term: represents the duration of the loan.
 12. Type of Loan: represents the type of loan taken by the customer like "Personal Loan", "Home Loan", "Auto Loan", etc.
 
-#### The final Output of the project:
+#### Project Progress
+
+![The entire EDA,Modelling is complete, currently doing django application for this project](https://img.shields.io/badge/status-in%20progress-yellow)
+
+#### The final output of the project
 
 ![Number of customers associated with credit score segmentation levels](images/valuesforsegment.png)
