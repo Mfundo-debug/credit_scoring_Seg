@@ -12,14 +12,24 @@
       "line": 3
     },
     {
+      "file": "credit_system/credit_score_app/views.py",
+      "description": "Create API Endpoints:\r\n* Start by defining your API endpoints in the `credit_score_app/views.py` file using django Rest Framework (DRF). You'll need to create serializers and views for your `Customer` model",
+      "line": 6
+    },
+    {
+      "file": "credit_system/credit_system/urls.py",
+      "description": "Then you come here to modify your root `urls.py` as indicated here with commente `#new`\r\n\r\nAfter you done that, goto your terminal same project directory and run the following commands\r\n```python\r\npython manage.py makemigrations\r\npython manage.py migrate\r\n```\r\n\r\nAfter running those commands, goto the database you should be able to see some changes that `models.py` made",
+      "line": 24
+    },
+    {
       "file": "credit_system/credit_score_app/models.py",
       "description": "To populate your database with the data from the CSV file, you can write a custom Django management command. Here's an example of how you can do this:\r\n\r\n1. Create a new directory called `management` in your Django app directory (if it doesn't already exist).\r\n2. Inside the `management` directory, create a new directory called `commands`.\r\n3. Inside the `commands` directory, create a new Python file called `load_data.py`.\r\n4. In `load_data.py`, import the necessary modules:\r\n\r\n   ```python\r\n   import csv\r\n   from django.core.management.base import BaseCommand\r\n   from myapp.models import Customer\r\n   ```\r\n\r\n   Replace `myapp` with the name of your Django app, and `Customer` with the name of your model.\r\n\r\n5. Define a new class that extends `BaseCommand`:\r\n\r\n   ```python\r\n   class Command(BaseCommand):\r\n       help = 'Loads data from a CSV file into the database'\r\n\r\n       def add_arguments(self, parser):\r\n           parser.add_argument('csv_file', type=str)\r\n\r\n       def handle(self, *args, **options):\r\n           csv_file = options['csv_file']\r\n           with open(csv_file, 'r') as f:\r\n               reader = csv.DictReader(f)\r\n               for row in reader:\r\n                   customer = Customer(\r\n                       age=row['Age'],\r\n                       gender=row['Gender'],\r\n                       marital_status=row['Marital Status'],\r\n                       education_level=row['Education Level'],\r\n                       employment_status=row['Employment Status'],\r\n                       credit_utilization_ratio=row['Credit Utilization Ratio'],\r\n                       payment_history=row['Payment History'],\r\n                       number_of_credit_accounts=row['Number of Credit Accounts'],\r\n                       loan_amount=row['Loan Amount'],\r\n                       interest_rate=row['Interest Rate'],\r\n                       loan_term=row['Loan Term'],\r\n                       type_of_loan=row['Type of Loan']\r\n                   )\r\n                   customer.save()\r\n           self.stdout.write(self.style.SUCCESS('Data loaded successfully'))\r\n   ```\r\n\r\n   This class defines a new management command called `load_data`. The `add_arguments` method defines a required argument called `csv_file`, which is the path to the CSV file. The `handle` method is called when the command is run, and it reads the data from the CSV file and creates a new `Customer` object for each row.\r\n\r\n6. Run the command `python manage.py load_data credit_scoring.csv` to load the data from the CSV file into your database.\r\n\r\n   Replace `credit_scoring.csv` with the name of your CSV file.\r\n\r\nThis custom management command will allow you to load the data from the CSV file into your database using the command `python manage.py load_data`. You can modify the code to match the specific requirements of your data and model.",
       "line": 22
     },
     {
-      "file": "credit_system/management/commands/load_data.py",
-      "description": "Created a class that extends BaseCommand\r\nThis class defines a new management command called `load_data`. The `add_arguments` method defines a required argument called `csv_file`, which in the path to the CSV file. the `handle` method is called when the commmand is run, and it read the data from CSV file and creates a new `Customer` object for each row.",
-      "line": 5
+      "file": "credit_system/credit_score_app/management/commands/load_data.py",
+      "description": "I have modified the `load_data.py` to handle errors that way you should be able to see if there's something faulty\r\n\r\nlike the previous suggested It's also important to note that you need to make sure that your CSV file is in the correct format and matches the fields and data types of your Django models. Otherwise, you may encounter errors when loading the data.\r\n\r\nIn my case this cmd that I parsed to my terminal so that you can have an idea\r\n\r\n```python\r\npython manage.py load_data \"C:\\Users\\didit\\Downloads\\Credit scoring and segmentation\\credit_scoring_Seg\\credit_system\\credit_score_app\\management\\credit_scoring.csv\r\n```\r\n`Data loaded successfully` which indicated my data was loaded successfully",
+      "line": 34
     }
   ]
 }
