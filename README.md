@@ -33,6 +33,12 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
 ```
 
+Alternatively you cn use the requirements.txt file to install all the libraries used in this project.
+
+```{python}
+pip install -r requirements.txt
+```
+
 #### FICO Formula
 
 let p be payment history
