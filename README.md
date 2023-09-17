@@ -81,6 +81,12 @@ credit_scores.append(credit_score)
 
 ![Project Status](https://img.shields.io/badge/status-in%20progress-yellow) The workflow is complete currently working on moving the model to django web app 👍.
 
-#### The final output of the project
+#### Django Preview:
+
+![Django Preview](images/preview.png)
+
+#### Entering Details:
+
+![Entering Details](images/details.png) \#### The final output of the project
 
 ![Number of customers associated with credit score segmentation levels](images/valuesforsegment.png)
