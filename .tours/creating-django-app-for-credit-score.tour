@@ -4,7 +4,7 @@
   "steps": [
     {
       "title": "Introduction",
-      "description": "creating django application step by step\r\n1. assuming you already created virtual env and activated it\r\n2. install the following library\r\n```python\r\npip install django djangorestframework\r\n```\r\n3 once the installation is complete, you can start a new django project by running the following cmd on the terminal\r\n```python\r\ndjango-admin start myproject\r\n```\r\n`myproject` can be replaced with the name of your project.\r\nafter this cmd you should see more files loaded then you goto where `myproject` is located using `cd` cmd\r\n4. you can then start django app by running the following cmd\r\n```python\r\npython manage.py start myapp\r\n```\r\nagain myapp can be replaced with the name of your app"
+      "description": "creating django application step by step\r\n1. assuming you already created virtual env and activated it\r\n2. install the following library\r\n\r\n```{python}\r\npip install django djangorestframework\r\n```\r\n\r\n3 once the installation is complete, you can start a new django project by running the following cmd on the terminal\r\n\r\n```{python}\r\ndjango-admin start myproject\r\n```\r\n\r\n`myproject` can be replaced with the name of your project.\r\nafter this cmd you should see more files loaded then you goto where `myproject` is located using `cd` cmd\r\n4. you can then start django app by running the following cmd\r\n\r\n```{python}\r\npython manage.py start myapp\r\n```\r\n\r\nagain myapp can be replaced with the name of your app"
     },
     {
       "file": "credit_system/credit_score_app/models.py",
@@ -18,7 +18,7 @@
     },
     {
       "file": "credit_system/credit_system/urls.py",
-      "description": "Then you come here to modify your root `urls.py` as indicated here with commente `#new`\r\n\r\nAfter you done that, goto your terminal same project directory and run the following commands\r\n```python\r\npython manage.py makemigrations\r\npython manage.py migrate\r\n```\r\n\r\nAfter running those commands, goto the database you should be able to see some changes that `models.py` made",
+      "description": "Then you come here to modify your root `urls.py` as indicated here with commente `#new`\r\n\r\nAfter you done that, goto your terminal same project directory and run the following commands\r\n```{python}\r\n\r\npython manage.py makemigrations\r\npython manage.py migrate\r\n```\r\n\r\nAfter running those commands, goto the database you should be able to see some changes that `models.py` made",
       "line": 24
     },
     {
@@ -30,6 +30,61 @@
       "file": "credit_system/credit_score_app/management/commands/load_data.py",
       "description": "I have modified the `load_data.py` to handle errors that way you should be able to see if there's something faulty\r\n\r\nlike the previous suggested It's also important to note that you need to make sure that your CSV file is in the correct format and matches the fields and data types of your Django models. Otherwise, you may encounter errors when loading the data.\r\n\r\nIn my case this cmd that I parsed to my terminal so that you can have an idea\r\n\r\n```python\r\npython manage.py load_data \"C:\\Users\\didit\\Downloads\\Credit scoring and segmentation\\credit_scoring_Seg\\credit_system\\credit_score_app\\management\\credit_scoring.csv\r\n```\r\n`Data loaded successfully` which indicated my data was loaded successfully",
       "line": 34
+    },
+    {
+      "file": "credit_system/credit_system/urls.py",
+      "description": "If you want to test your api using `POSTMAN` use the following\r\n first run your django development server\r\n make sure is running\r\n ```{python}\r\n python  manage.py runserver\r\n ```\r\nAccess Postman:\r\n\r\nOpen Postman, a popular tool for testing API endpoints.\r\nTest GET Endpoint:\r\n\r\nFirst, let's test the GET endpoint to retrieve customer data.\r\nCreate a new request in Postman.\r\nSet the request type to GET.\r\nEnter the URL for retrieving customers. It will be something like http://localhost:8000/customers/ if you are running the development server locally.\r\nClick \"Send.\"\r\n\r\nou should receive a response containing a list of customers in JSON format.\r\n\r\nTest POST Endpoint:\r\n\r\nNow, let's test the POST endpoint to add new customer data.\r\nCreate a new request in Postman.\r\nSet the request type to POST.\r\nEnter the URL for adding customers (e.g., http://localhost:8000/customers/).\r\nIn the request body, select raw and choose JSON (application/json) as the format.\r\nEnter a sample customer data in JSON format, like this:\r\n\r\n```{json}\r\n{\r\n    \"age\": 30,\r\n    \"gender\": \"Male\",\r\n    \"marital_status\": \"Married\",\r\n    \"education_level\": \"Bachelor's Degree\",\r\n    \"employment_status\": \"Employed\",\r\n    \"credit_utilization_ratio\": 0.3,\r\n    \"payment_history\": \"On-time\",\r\n    \"number_of_credit_accounts\": 3,\r\n    \"loan_amount\": 5000,\r\n    \"interest_rate\": 5.0,\r\n    \"loan_term\": 24,\r\n    \"type_of_loan\": \"Personal Loan\"\r\n}\r\n\r\n```\r\n\r\nClick \"Send.\"\r\nYou should receive a response indicating that the data was added successfully.\r\n\r\nThese are basic tests to verify that your API endpoints are working as expected for GET and POST requests. You can further test other CRUD operations (such as PUT and DELETE) as you implement more functionality in your application.\r\n\r\nOnce you've confirmed that the API endpoints work correctly, you can start building the frontend to allow users to interact with your application and input customer data",
+      "line": 23
+    },
+    {
+      "file": "credit_system/system-front/src/components/CreditScoringForm.js",
+      "description": "The next is totally upto you, this is where you decide you want to use static files\r\nso you are allowed to choose what you will use as your frontend could be, `React`, `Vue.js,` or `standard old way HTML/CSS/Javascript` which of couse you will have to create template directory, so in my case I chose `React`\r\n",
+      "line": 3
+    },
+    {
+      "file": "credit_system/system-front/src/components/CreditScoringForm.js",
+      "description": " React is a popular frontend library that offers a lot of features and benefits. It's known for its flexibility, performance, and ease of use.\r\n\r\nHere are some steps to get started with React:\r\n\r\n1. Install Node.js and npm on your computer if you haven't already. You can download them from the official Node.js website at https://nodejs.org/en/download/.\r\n2. Create a new React project using the `create-react-app` command. Open your terminal and run the following command:\r\n\r\n   ```\r\n   npx create-react-app my-app\r\n   ```\r\n\r\n   Replace `my-app` with the name of your project.\r\n\r\n3. Navigate to the project directory and start the development server by running the following command:\r\n\r\n   ```\r\n   cd my-app\r\n   npm start\r\n   ```\r\n\r\n   This will start the development server and open your React app in your default web browser.\r\n\r\n4. Start building your React app by editing the `src/App.js` file. This is the main file for your React app and contains the root component.\r\n\r\n   You can also create new components by creating new files in the `src` directory and importing them into `App.js`.\r\n\r\n5. Once you've made changes to your React app, save the files and the development server will automatically reload the app in your browser.\r\n\r\nThese are just the basic steps to get started with React. There are many more features and concepts to learn, such as state management, props, and lifecycle methods. I recommend exploring the official React documentation and online tutorials to learn more.\r\n\r\n",
+      "line": 5
+    },
+    {
+      "file": "credit_system/system-front/src/components/Header.js",
+      "description": "Create a Header Component:\r\n\r\nInside the src/components directory, create a new file called Header.js.\r\nIn this component, you can create a simple header with a light blue background color and some text. For example:\r\n```{jsx}\r\nimport React from 'react';\r\nconst Header = () => {\r\n    return (\r\n        <header style={{backgroundColor: 'lightblue', textAlign: 'center', padding: '10px'}}>\r\n            <h1>Credit Scoring and Segmentation System</h1>\r\n        </header>\r\n    );\r\n};\r\nexport default Header;\r\n```",
+      "line": 3
+    },
+    {
+      "file": "credit_system/system-front/src/components/Footer.js",
+      "description": "Create a Footer Component:\r\n\r\nIn the same src/components directory, create a new file called Footer.js.\r\nIn this component, you can add your contact information or any other relevant details. Here's a simple example:\r\n\r\n```{jsx}\r\nimport React from \"react\";\r\n\r\nconst Footer = () => {\r\n    return (\r\n        <footer style={{backgroundColor: 'lightblue', textAlign: 'center', padding: '10px'}}>\r\n            <p>Contact: <a href=\"mailto:diditmfundo@gmail.com\">diditmfundo@gmail.com</a> </p>\r\n        </footer>\r\n    );\r\n};\r\nexport default Footer;\r\n```",
+      "line": 2
+    },
+    {
+      "file": "credit_system/system-front/src/components/CreditScoringForm.js",
+      "description": "Create a Form Component:\r\n\r\nContinuing in the src/components directory, create a new file called CreditScoringForm.js. This component will represent the form where users input their details.\r\nDesign the form as per your requirements. Below is a simple example:\r\n```{jsx}\r\nimport React, { useState } from 'react';\r\n\r\nconst CreditScoringForm = () => {\r\n  const [formData, setFormData] = useState({\r\n    // Define form fields here, e.g., name, age, etc.\r\n  });\r\n\r\n  const handleChange = (e) => {\r\n    // Handle form input changes and update formData state\r\n    const { name, value } = e.target;\r\n    setFormData({\r\n      ...formData,\r\n      [name]: value,\r\n    });\r\n  };\r\n\r\n  const handleSubmit = (e) => {\r\n    e.preventDefault();\r\n    // Send formData to your backend API for prediction\r\n    // You'll need to make an API request here\r\n  };\r\n\r\n  return (\r\n    <div>\r\n      <h2>Enter Customer Details:</h2>\r\n      <form onSubmit={handleSubmit}>\r\n        {/* Create form input fields here */}\r\n        <label>\r\n          Name:\r\n          <input type=\"text\" name=\"name\" onChange={handleChange} />\r\n        </label>\r\n        {/* Add more input fields for other details */}\r\n        <button type=\"submit\">Predict</button>\r\n      </form>\r\n    </div>\r\n  );\r\n};\r\n\r\nexport default CreditScoringForm;\r\n\r\n```",
+      "line": 17
+    },
+    {
+      "file": "credit_system/system-front/src/App.js",
+      "description": "Integrate Components in App.js:\r\n\r\nOpen your src/App.js file and import the Header, Footer, and CreditScoringForm components.\r\nUse these components within your App component to create the desired layout.\r\n\r\n```{jsx}\r\nimport React from 'react';\r\nimport Header from './components/Header';\r\nimport Footer from './components/Footer';\r\nimport CreditScoringForm from './components/CreditScoringForm';\r\n\r\nfunction App() {\r\n  return (\r\n    <div>\r\n      <Header />\r\n      <main>\r\n        <CreditScoringForm />\r\n      </main>\r\n      <Footer />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default App;\r\n\r\n```",
+      "line": 4
+    },
+    {
+      "file": "credit_system/system-front/src/components/CreditScoringForm.css",
+      "description": "Create a file within same dir as others called `CreditScoringForm.css` this is where you will make your form or frontpage more appealing the styling totally upto you",
+      "line": 4
+    },
+    {
+      "file": "credit_system/credit_score_app/views.py",
+      "description": "let's move on to integrating the machine learning model into your Django backend. To use the trained Random Forest Classifier model (rfc.joblib) for making predictions based on user inputs from the frontend, you'll need to follow these steps:\r\n\r\nLoad the Trained Model: In your Django backend, you should load the trained model using the joblib library. Make sure you have the model file (rfc.joblib) available in your Django project directory.\r\n```python\r\nimport joblib\r\n\r\n# Load the trained model\r\nmodel = joblib.load('rfc.joblib')\r\n\r\n```",
+      "line": 5
+    },
+    {
+      "file": "credit_system/credit_score_app/views.py",
+      "description": "Create an API Endpoint: Define an API endpoint in your Django backend (in views.py) that receives the user inputs, sends them through the loaded model for prediction, and returns the prediction result as a response.\r\n```{python}\r\nfrom rest_framework.views import APIView\r\nfrom rest_framework.response import Response\r\n\r\nclass CreditScoringPrediction(APIView):\r\n    def post(self, request):\r\n        data = request.data\r\n\r\n        # Prepare the input data for prediction\r\n        # Make sure the data keys match the features expected by your model\r\n        input_data = {\r\n            'age': float(data.get('age')),\r\n            'gender': data.get('gender'),\r\n            'marital_status': data.get('marital_status'),\r\n            'employment_status': data.get('employment_status'),\r\n            'educational_level': data.get('educational_level'),\r\n            'credit_utilization_ratio': float(data.get('credit_utilization_ratio')),\r\n            'payment_history': data.get('payment_history'),\r\n            'number_of_credit_accounts': float(data.get('number_of_credit_accounts')),\r\n            'loan_amount': float(data.get('loan_amount')),\r\n            'interest_rate': float(data.get('interest_rate')),\r\n            'loan_term': float(data.get('loan_term')),\r\n            'type_of_loan': data.get('type_of_loan'),\r\n        }\r\n\r\n        # Make the prediction\r\n        prediction = model.predict([list(input_data.values())])\r\n\r\n        # Return the prediction as a response\r\n        return Response({'prediction': prediction[0]})\r\n\r\n```",
+      "line": 14
+    },
+    {
+      "file": "credit_system/credit_system/urls.py",
+      "description": "Configure URL Routing: Configure the URL routing in your Django project (urls.py) to map the API endpoint to the CreditScoringPrediction view.\r\n\r\n```{python}\r\nConfigure URL Routing: Configure the URL routing in your Django project (urls.py) to map the API endpoint to the CreditScoringPrediction view.\r\n```",
+      "line": 21
     }
   ]
 }
