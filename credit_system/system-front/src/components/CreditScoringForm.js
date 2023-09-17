@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CreditScoringForm.css';
 
 const CreditScoringForm = () => {
@@ -27,15 +28,23 @@ const CreditScoringForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Send formData to your backend API for prediction
     // You'll need to make an API request here
+    try {
+        const response = await axios.post('/api/predict-credit-score/', formData);
+        const prediction = response.data.prediction;
+        //Display the prediction to the user or performe some other operation
+        console.log('Creidt Score Prediction: ', prediction);
+    } catch (err) {
+        console.log('Error',err);
+    }
   };
 
   return (
     <div className="credit-form-container">
-      <h2>Enter Customer Details:</h2>
+      <h2>Enter Customer Details</h2>
       <form onSubmit={handleSubmit} className="credit-form">
         <div className="form-group">
           <input type="number" name="age" placeholder="Age" className="form-control" onChange={handleChange} value={formData.age} />
