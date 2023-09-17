@@ -18,10 +18,12 @@ from django.contrib import admin
 from django.urls import path, include # new
 from rest_framework.routers import DefaultRouter # new
 from credit_score_app import views # new
+from credit_score_app.views import CreditScoringPrediction # updated
 
 router=DefaultRouter() # new
 router.register(r'customers', views.CustomerViewSet) # new
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(router.urls)) # new
+    path('', include(router.urls)), # new
+    path('api/predict-score-score/', CreditScoringPrediction.as_view(), name='predict_credit_score'), # new
 ]
