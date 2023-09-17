@@ -16,24 +16,34 @@ The given dataset includes features such as age, gender, marital status, educati
 
 Your task is to calculate credit scores and segment customers based on their credit scores to gain insights into different customer groups.
 
-#### Make sure the following libraries for this project
+#### Run the Setup file to install all the libraries used in this project
+ Here's an example of how you can use `pip` to install your package:
+
+1. First, navigate to the directory where your `setup.py` file is located.
+
+2. Run the following command to build a distribution package:
+
+   ```{python}
+   python setup.py sdist
+   ```
+
+   This will create a `dist` directory containing a `.tar.gz` file that contains your package.
+
+3. Run the following command to install your package using `pip`:
+
+   ```{python}
+   pip install dist/credit_system-0.1.tar.gz
+   ```
+
+   This will install your package and its dependencies.
+
+After installing the package, you can use the `credit_system` command to run your application. For example, if you have defined a `main()` function in your `manage.py` file, you can run your application using the following command:
 
 ```{python}
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-import os
-import warnings
-warnings.filterwarnings('ignore')
-from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
+credit_system manage.py main
 ```
 
-Alternatively you cn use the requirements.txt file to install all the libraries used in this project.
+Install libraries using the requirements.txt file to install all the libraries used in this project.
 
 ```{python}
 pip install -r requirements.txt
