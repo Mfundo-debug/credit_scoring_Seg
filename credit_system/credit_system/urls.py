@@ -25,5 +25,5 @@ router.register(r'customers', views.CustomerViewSet) # new
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)), # new
-    path('api/predict-score-score/', CreditScoringPrediction.as_view(), name='predict_credit_score'), # new
+    path('api/predict-credit-score/', CreditScoringPrediction.as_view(), name='predict_credit_score'), # new
 ]
