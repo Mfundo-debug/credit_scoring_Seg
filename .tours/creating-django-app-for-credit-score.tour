@@ -83,8 +83,13 @@
     },
     {
       "file": "credit_system/credit_system/urls.py",
-      "description": "Configure URL Routing: Configure the URL routing in your Django project (urls.py) to map the API endpoint to the CreditScoringPrediction view.\r\n\r\n```{python}\r\nConfigure URL Routing: Configure the URL routing in your Django project (urls.py) to map the API endpoint to the CreditScoringPrediction view.\r\n```",
+      "description": "Configure URL Routing: Configure the URL routing in your Django project (urls.py) to map the API endpoint to the CreditScoringPrediction view.\r\n\r\n```{python}\r\nfrom django.urls import path\r\nfrom .views import CreditScoringPrediction\r\n\r\nurlpatterns = [\r\n    # ... other URL patterns\r\n    path('api/predict-credit-score/', CreditScoringPrediction.as_view(), name='predict_credit_score'),\r\n]\r\n```\r\n\r\n",
       "line": 21
+    },
+    {
+      "file": "credit_system/system-front/src/components/CreditScoringForm.js",
+      "description": "Frontend Integration: In your React frontend, when the user submits the form, make an HTTP POST request to the Django API endpoint you just created (api/predict-credit-score/) with the user input data. You can use a library like Axios to make the API request\r\n```{jsx}\r\nimport axios from 'axios';\r\n\r\n// Function to handle form submission\r\nconst handleSubmit = async (e) => {\r\n  e.preventDefault();\r\n\r\n  try {\r\n    const response = await axios.post('/api/predict-credit-score/', formData);\r\n    const prediction = response.data.prediction;\r\n\r\n    // Display the prediction to the user or perform further actions\r\n    console.log('Credit Score Prediction:', prediction);\r\n  } catch (error) {\r\n    // Handle errors\r\n    console.error('Error:', error);\r\n  }\r\n};\r\n\r\n```\r\n\r\nTesting: Test the integration by running your Django server (`python manage.py runserver`) and your React frontend (`npm start`). Fill out the form on your frontend and submit it. You should receive a prediction response from the backend API.\r\n\r\nBy following these steps, you can integrate your trained machine learning model into your Django backend and make predictions based on user inputs from the React frontend.\r\n\r\nand that marks the end of this tutorial, you have finally created django api integrated frontend React and ready to make more projects following the same structure",
+      "line": 35
     }
   ]
 }
