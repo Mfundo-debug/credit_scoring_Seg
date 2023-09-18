@@ -33,7 +33,7 @@ const CreditScoringForm = () => {
     // Send formData to your backend API for prediction
     // You'll need to make an API request here
     try {
-        const response = await axios.post('/api/predict-credit-score/', formData);
+        const response = await axios.post('http://localhost:8000/api/predict-credit-score/', formData);
         const prediction = response.data.prediction;
         //Display the prediction to the user or performe some other operation
         console.log('Creidt Score Prediction: ', prediction);
