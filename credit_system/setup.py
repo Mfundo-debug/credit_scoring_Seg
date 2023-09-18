@@ -11,6 +11,7 @@ setup(
     install_requires= [
         'django==4.2.5',
         'djangorestframework==3.14.0',
+        'django-cors-headers==4.2.0',
         'pandas==2.0.2',
         'numpy==1.24.3',
         'matplotlib==3.7.1',
