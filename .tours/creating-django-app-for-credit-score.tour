@@ -90,6 +90,21 @@
       "file": "credit_system/system-front/src/components/CreditScoringForm.js",
       "description": "Frontend Integration: In your React frontend, when the user submits the form, make an HTTP POST request to the Django API endpoint you just created (api/predict-credit-score/) with the user input data. You can use a library like Axios to make the API request\r\n```{jsx}\r\nimport axios from 'axios';\r\n\r\n// Function to handle form submission\r\nconst handleSubmit = async (e) => {\r\n  e.preventDefault();\r\n\r\n  try {\r\n    const response = await axios.post('/api/predict-credit-score/', formData);\r\n    const prediction = response.data.prediction;\r\n\r\n    // Display the prediction to the user or perform further actions\r\n    console.log('Credit Score Prediction:', prediction);\r\n  } catch (error) {\r\n    // Handle errors\r\n    console.error('Error:', error);\r\n  }\r\n};\r\n\r\n```\r\n\r\nTesting: Test the integration by running your Django server (`python manage.py runserver`) and your React frontend (`npm start`). Fill out the form on your frontend and submit it. You should receive a prediction response from the backend API.\r\n\r\nBy following these steps, you can integrate your trained machine learning model into your Django backend and make predictions based on user inputs from the React frontend.\r\n\r\nand that marks the end of this tutorial, you have finally created django api integrated frontend React and ready to make more projects following the same structure",
       "line": 35
+    },
+    {
+      "file": "credit_system/credit_system/settings.py",
+      "description": "Very important step,\r\nIf your frontend (React) and backend (Django) are hosted on different domains (origins), you will likely need to configure Cross-Origin Resource Sharing (CORS) to allow your frontend to make API requests to your backend. CORS is a security feature implemented by web browsers to prevent cross-origin requests by default.\r\n\r\nTo enable CORS for your Django project, you can follow these steps:\r\n\r\n1 *Instal `django-cors-headers`:\r\nYou need to install the `django-cors-headers` package.\r\n\r\n```python\r\npip install django-cors-headers\r\n```\r\n2. *ADD 'corsheaders' to Installed Apps:*\r\nIn your Django project's `settings.py` file, add `'corsheaders'` to the `INSTALLED_APPS` list:\r\n```python\r\nINSTALLED_APPS = [\r\n    # ...\r\n    'corsheaders',\r\n    #...\r\n]\r\n```\r\n\r\n",
+      "line": 42
+    },
+    {
+      "file": "credit_system/credit_system/settings.py",
+      "description": "3. *Configure Middleware*:\r\nIn your `settings.py`, add `'corsheaders.middleware.CorsMiddleware'` to the `MIDDLEWARE` list. Make sure it comes before Django's `CommonMiddleware`:\r\n```python\r\nMIDDLEWARE = [\r\n    # ...\r\n    'corsheaders.middleware.CorsMiddleware',\r\n    'django.middleware.common.CommonMiddleware',\r\n    # ...\r\n]\r\n\r\n```",
+      "line": 51
+    },
+    {
+      "file": "credit_system/credit_system/settings.py",
+      "description": "4. **Set CORS_ALLOWED_ORIGINS**:\r\nYou can specify which origins are allowed to make cross-origin requests to your API. In your `settings.py`, define `CORS_ALLOWED_ORIGINS with the list of allowed origins (e.g., your React frontend's URL):\r\n\r\n```python\r\nCORS_ALLOWED_ORIGINS = [\r\n    \"http://localhost:3000\",  # Example: Your React development server\r\n    # Add other allowed origins as needed\r\n]\r\n```\r\nEnsure that you add the correct URL for your React frontend\r\n\r\n5. Fine-Tune CORS Settings (Optional):\r\n\r\nYou can further fine-tune CORS settings as needed for your project, such as allowing specific HTTP methods or headers. Refer to the django-cors-headers documentation for more advanced configurations if necessary.\r\n\r\nRestart Django Development Server:\r\n\r\nAfter making these changes, restart your Django development server to apply the CORS settings.\r\n\r\nOnce you've configured CORS, your React frontend should be able to make API requests to your Django backend without encountering CORS-related errors. Make sure that your Axios request URLs match the updated CORS configuration.",
+      "line": 54
     }
   ]
 }
